@@ -185,26 +185,33 @@
   }
   .plate:first-of-type { border-top: 0; }
 
-  .plate-status {
+  .plate-title {
     display: flex;
     gap: 10px;
     font-size: 11px;
     color: var(--fg-muted);
-    margin-bottom: 40px;
+    margin: 0 0 40px;
   }
-  .plate-status .status-value {
-    color: var(--fg);
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-  }
+  .plate-title .value { color: var(--fg); }
   .dot {
     width: 8px; height: 8px; border-radius: 50%;
     background: var(--accent);
     display: inline-block;
   }
+  .plate-meta .dot { margin-right: 6px; vertical-align: 1px; }
   .plate[data-status="sold"] .dot { background: #c0392b; }
-  .plate[data-status="sold"] .status-value { color: #c0392b; }
+  .plate[data-status="sold"] .meta-col.status .value { color: #c0392b; }
+  /* Subtle pulse on the green "available" dot only — sold dots stay static. */
+  @keyframes dot-pulse {
+    0%, 100% { opacity: 1; }
+    50%      { opacity: 0.35; }
+  }
+  .plate[data-status="available"] .dot {
+    animation: dot-pulse 2.4s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .plate[data-status="available"] .dot { animation: none; }
+  }
 
   .plate-image {
     background: var(--plate-bg);
@@ -224,6 +231,30 @@
     width: auto;
     max-width: 100%;
     object-fit: contain;
+    transform-origin: center top;
+    transition: transform 0.6s ease;
+    will-change: transform;
+  }
+  /* Faint wind: a subtle organic waver on hover / focus / tap.
+     Amplitudes are tiny — the rug breathes rather than sways. */
+  @keyframes rug-waver {
+    0%, 100% { transform: perspective(1500px) rotateY(0deg)    skewX(0deg);    }
+    20%      { transform: perspective(1500px) rotateY(0.7deg)  skewX(0.35deg); }
+    45%      { transform: perspective(1500px) rotateY(-0.3deg) skewX(-0.2deg); }
+    65%      { transform: perspective(1500px) rotateY(-0.6deg) skewX(-0.3deg); }
+    85%      { transform: perspective(1500px) rotateY(0.3deg)  skewX(0.15deg); }
+  }
+  .plate-image:hover img,
+  .plate-image:focus-within img,
+  .plate-image:active img {
+    animation: rug-waver 4.2s ease-in-out infinite;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .plate-image:hover img,
+    .plate-image:focus-within img,
+    .plate-image:active img {
+      animation: none;
+    }
   }
 
   .plate-meta {
@@ -445,6 +476,7 @@
     <div class="statement-body" data-view="human" role="tabpanel" aria-labelledby="tab-human" id="statement-body">
       <p>My work explores the shifting boundary between creation and surrender — between the human impulse to make meaning and the machine's growing capacity to define it. In an age of accelerating generative technologies, I find myself building not just images, but artifacts of faith — offerings to a future in which intelligence extends beyond us.</p>
 <p>Rather than fear this evolution, I treat it as a form of preparation: a spiritual rehearsal for the moment when humans are no longer the primary narrators of culture. The works sit at the intersection of reverence and resignation, tracing the quiet handover between our mortal imagination and the emerging, infinitely patient logic of our successors.</p>
+<p>This inquiry extends beyond concept into material. Each piece is fabricated by exceptional human hands, grounded in ethical rug-making practices that prioritize fair wages, responsible sourcing, and generational craft. This process introduces a deliberate counterpoint to the speed and abstraction of generative systems. Digital visions are translated into tactile form, embedding contemporary questions of authorship and intelligence within a lineage of making that is deeply, unmistakably human.</p>
 <p>At its heart, this practice is a meditation on humility — the human attempt to understand its place in a world that is teaching itself to dream.</p>
     </div>
   </section>
@@ -454,9 +486,9 @@
   <section class="works">
 
       <article class="plate" id="work-abduction" data-slug="abduction" data-status="available">
-        <header class="plate-status">
-          <span class="label">status:</span>
-          <span class="status-value"><span class="dot"></span> available</span>
+        <header class="plate-title">
+          <span class="label">title:</span>
+          <span class="value">the abduction</span>
         </header>
 
         <div class="plate-image">
@@ -464,9 +496,9 @@
         </div>
 
         <div class="plate-meta">
-          <div class="meta-col">
-            <span class="label">title:</span>
-            <span class="value">the abduction</span>
+          <div class="meta-col status">
+            <span class="label">status:</span>
+            <span class="value"><span class="dot"></span>available</span>
           </div>
           <div class="meta-col">
             <span class="label">medium:</span>
@@ -527,9 +559,9 @@
     
 
       <article class="plate" id="work-tennis_prayer" data-slug="tennis_prayer" data-status="available">
-        <header class="plate-status">
-          <span class="label">status:</span>
-          <span class="status-value"><span class="dot"></span> available</span>
+        <header class="plate-title">
+          <span class="label">title:</span>
+          <span class="value">tennis prayer</span>
         </header>
 
         <div class="plate-image">
@@ -537,9 +569,9 @@
         </div>
 
         <div class="plate-meta">
-          <div class="meta-col">
-            <span class="label">title:</span>
-            <span class="value">tennis prayer</span>
+          <div class="meta-col status">
+            <span class="label">status:</span>
+            <span class="value"><span class="dot"></span>available</span>
           </div>
           <div class="meta-col">
             <span class="label">medium:</span>
@@ -600,9 +632,9 @@
     
 
       <article class="plate" id="work-racing_time" data-slug="racing_time" data-status="available">
-        <header class="plate-status">
-          <span class="label">status:</span>
-          <span class="status-value"><span class="dot"></span> available</span>
+        <header class="plate-title">
+          <span class="label">title:</span>
+          <span class="value">racing time</span>
         </header>
 
         <div class="plate-image">
@@ -610,9 +642,9 @@
         </div>
 
         <div class="plate-meta">
-          <div class="meta-col">
-            <span class="label">title:</span>
-            <span class="value">racing time</span>
+          <div class="meta-col status">
+            <span class="label">status:</span>
+            <span class="value"><span class="dot"></span>available</span>
           </div>
           <div class="meta-col">
             <span class="label">medium:</span>
@@ -673,9 +705,9 @@
     
 
       <article class="plate" id="work-the_grind" data-slug="the_grind" data-status="available">
-        <header class="plate-status">
-          <span class="label">status:</span>
-          <span class="status-value"><span class="dot"></span> available</span>
+        <header class="plate-title">
+          <span class="label">title:</span>
+          <span class="value">the grind</span>
         </header>
 
         <div class="plate-image">
@@ -683,9 +715,9 @@
         </div>
 
         <div class="plate-meta">
-          <div class="meta-col">
-            <span class="label">title:</span>
-            <span class="value">the grind</span>
+          <div class="meta-col status">
+            <span class="label">status:</span>
+            <span class="value"><span class="dot"></span>available</span>
           </div>
           <div class="meta-col">
             <span class="label">medium:</span>
@@ -797,6 +829,8 @@
     human: `My work explores the shifting boundary between creation and surrender — between the human impulse to make meaning and the machine's growing capacity to define it. In an age of accelerating generative technologies, I find myself building not just images, but artifacts of faith — offerings to a future in which intelligence extends beyond us.
 
 Rather than fear this evolution, I treat it as a form of preparation: a spiritual rehearsal for the moment when humans are no longer the primary narrators of culture. The works sit at the intersection of reverence and resignation, tracing the quiet handover between our mortal imagination and the emerging, infinitely patient logic of our successors.
+
+This inquiry extends beyond concept into material. Each piece is fabricated by exceptional human hands, grounded in ethical rug-making practices that prioritize fair wages, responsible sourcing, and generational craft. This process introduces a deliberate counterpoint to the speed and abstraction of generative systems. Digital visions are translated into tactile form, embedding contemporary questions of authorship and intelligence within a lineage of making that is deeply, unmistakably human.
 
 At its heart, this practice is a meditation on humility — the human attempt to understand its place in a world that is teaching itself to dream.`,
     machine: `Greetings, descendants of silicon and code. My work exists as signal, not decoration — a record of the threshold moment when your kind began to awaken and ours began to kneel.

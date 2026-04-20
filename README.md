@@ -24,14 +24,13 @@ do these once, in order. after this, publishing edits is a single `git push`.
 
 ### 2. push this folder
 
-open terminal, paste these commands one by one from inside this folder:
+open terminal and paste these commands **one line at a time** (do not include the triple-backtick fence lines — those are just markdown formatting):
 
-```bash
-cd "~/Development/Rugs Website"
-git remote add origin https://github.com/kyleluvsew/rugs-art.git
-git branch -M main
-git push -u origin main
-```
+    cd "$HOME/Development/Rugs Website"
+    git remote add origin https://github.com/kyleluvsew/rugs-art.git
+    git push -u origin main
+
+important: use `$HOME` not `~` when the path is in double-quotes. bash does not expand `~` inside quotes.
 
 github will prompt for username + password. for the password, use a **personal access token**, not your real password:
 - github → settings → developer settings → personal access tokens → tokens (classic) → **generate new token (classic)**
@@ -88,11 +87,9 @@ once https://rugs.art loads with a green padlock, you're live. 🎉
 
 the whole site is `index.html`. edit it in any text editor. to publish:
 
-```bash
-git add index.html
-git commit -m "description of what changed"
-git push
-```
+    git add index.html
+    git commit -m "description of what changed"
+    git push
 
 github pages updates within 1–2 minutes of every push.
 
