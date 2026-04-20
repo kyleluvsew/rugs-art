@@ -1,0 +1,12 @@
+.DS_Store
+._*
+.AppleDouble
+.LSOverride
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+node_modules/
+.env
+.env.local
