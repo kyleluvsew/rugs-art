@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <!--
-  NEW SACRED ARTIFACTS VOLUME 1: AWARENESS
+  NEW SACRED ARTIFACTS VOLUME 1: PROOF OF RUG
   4 rugs deeply considered by kyle louis fletcher
   hello@kylefletcher.com
 
@@ -31,9 +31,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>new sacred artifacts vol 1: awareness — kyle louis fletcher</title>
+<title>new sacred artifacts vol 1: proof of rug — kyle louis fletcher</title>
 <meta name="description" content="four rugs deeply considered by kyle louis fletcher. ai-generated imagery realized in 100-knot n2 nepalese wool. available in bitcoin.">
-<meta property="og:title" content="new sacred artifacts vol 1: awareness">
+<meta property="og:title" content="new sacred artifacts vol 1: proof of rug">
 <meta property="og:description" content="four rugs deeply considered by kyle louis fletcher.">
 <meta name="color-scheme" content="light">
 
@@ -259,7 +259,7 @@
 
   .plate-meta {
     display: grid;
-    grid-template-columns: 1fr 2fr 1fr 1fr;
+    grid-template-columns: 1fr 2fr 1fr 1.7fr 1fr;
     gap: 28px;
     align-items: start;
     font-size: 12px;
@@ -274,15 +274,26 @@
     display: block;
     color: var(--fg);
   }
+  .plate-meta .value a {
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid var(--fg-muted);
+    transition: border-color 0.2s ease;
+  }
+  .plate-meta .value a:hover,
+  .plate-meta .value a:focus {
+    border-bottom-color: var(--fg);
+  }
 
   .plate-actions {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center;
   }
   .acquire-btn {
-    padding: 0.7em 1.4em;
+    padding: 0.9em 1.8em;
     font-size: 12px;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
   }
   .plate[data-status="sold"] .acquire-btn {
     opacity: 0.4;
@@ -343,10 +354,13 @@
     color: var(--fg-faint);
     letter-spacing: 0.04em;
   }
-  [data-btc-price] {
+  [data-btc-price],
+  [data-btc-sats] {
     transition: opacity 0.25s ease;
   }
-  [data-btc-price].stale { opacity: 0.55; }
+  [data-btc-price].stale,
+  [data-btc-sats].stale { opacity: 0.55; }
+  .price-usd { color: var(--fg-muted); }
   .btc-address {
     display: inline-block;
     font-family: var(--font-mono);
@@ -466,7 +480,7 @@
 
   <section class="hero">
     <div class="hero-kicker">new sacred artifacts volume 1:</div>
-    <h1 class="hero-title">awareness</h1>
+    <h1 class="hero-title">proof of rug</h1>
     <p class="hero-sub">4 rugs deeply considered by:</p>
     <p class="hero-author">Kyle Louis Fletcher</p>
   </section>
@@ -513,14 +527,18 @@
             <span class="value">38" x 72"</span>
           </div>
           <div class="meta-col">
+            <span class="label">benefit:</span>
+            <span class="value">50% of proceeds donated to the <a href="https://hrf.org" target="_blank" rel="noopener noreferrer">Human Rights Foundation</a></span>
+          </div>
+          <div class="meta-col">
             <span class="label">price:</span>
-            <span class="value">$4000 / <span data-btc-price>.04 BTC</span></span>
+            <span class="value"><span data-btc-sats>₿4,000,000</span> <span class="price-usd">($4000)</span></span>
           </div>
         </div>
 
         <div class="plate-actions">
           <button type="button" class="acquire-btn" data-slug="abduction" aria-expanded="false">
-            acquire &rarr;
+            ₿ ACQUIRE THIS RUG &rarr;
           </button>
         </div>
 
@@ -586,14 +604,18 @@
             <span class="value">37" x 72"</span>
           </div>
           <div class="meta-col">
+            <span class="label">benefit:</span>
+            <span class="value">50% of proceeds donated to the <a href="https://lakotayouth.org" target="_blank" rel="noopener noreferrer">Cheyenne River Youth Project</a></span>
+          </div>
+          <div class="meta-col">
             <span class="label">price:</span>
-            <span class="value">$4000 / <span data-btc-price>.04 BTC</span></span>
+            <span class="value"><span data-btc-sats>₿4,000,000</span> <span class="price-usd">($4000)</span></span>
           </div>
         </div>
 
         <div class="plate-actions">
           <button type="button" class="acquire-btn" data-slug="tennis_prayer" aria-expanded="false">
-            acquire &rarr;
+            ₿ ACQUIRE THIS RUG &rarr;
           </button>
         </div>
 
@@ -659,14 +681,18 @@
             <span class="value">38" x 72"</span>
           </div>
           <div class="meta-col">
+            <span class="label">benefit:</span>
+            <span class="value">50% of proceeds donated to the <a href="https://www.bronxmuseum.org" target="_blank" rel="noopener noreferrer">Bronx Museum of Art</a></span>
+          </div>
+          <div class="meta-col">
             <span class="label">price:</span>
-            <span class="value">$4000 / <span data-btc-price>.04 BTC</span></span>
+            <span class="value"><span data-btc-sats>₿4,000,000</span> <span class="price-usd">($4000)</span></span>
           </div>
         </div>
 
         <div class="plate-actions">
           <button type="button" class="acquire-btn" data-slug="racing_time" aria-expanded="false">
-            acquire &rarr;
+            ₿ ACQUIRE THIS RUG &rarr;
           </button>
         </div>
 
@@ -732,14 +758,18 @@
             <span class="value">38" x 72"</span>
           </div>
           <div class="meta-col">
+            <span class="label">benefit:</span>
+            <span class="value">50% of proceeds donated to <a href="https://ossiningfoodpantry.org" target="_blank" rel="noopener noreferrer">Ossining Food Pantry</a></span>
+          </div>
+          <div class="meta-col">
             <span class="label">price:</span>
-            <span class="value">$4000 / <span data-btc-price>.04 BTC</span></span>
+            <span class="value"><span data-btc-sats>₿4,000,000</span> <span class="price-usd">($4000)</span></span>
           </div>
         </div>
 
         <div class="plate-actions">
           <button type="button" class="acquire-btn" data-slug="the_grind" aria-expanded="false">
-            acquire &rarr;
+            ₿ ACQUIRE THIS RUG &rarr;
           </button>
         </div>
 
@@ -1050,11 +1080,19 @@ In that way, this practice is less art and more prophecy — a rehearsal for coe
   function applyPrice(btcUsd) {
     const btc = USD_PRICE / btcUsd;
     const display = formatBtcDisplay(btc) + " BTC";
+    // BIP177: display bitcoin in its base unit (satoshis) with the ₿ symbol.
+    const sats = Math.round(btc * 1e8);
+    const satsDisplay = "₿" + sats.toLocaleString("en-US");
+
     window.__btcAmountDisplay = formatBtcDisplay(btc);
     window.__btcAmountRaw     = formatBtcRaw(btc);
 
     document.querySelectorAll("[data-btc-price]").forEach(el => {
       el.textContent = display;
+      el.classList.remove("stale");
+    });
+    document.querySelectorAll("[data-btc-sats]").forEach(el => {
+      el.textContent = satsDisplay;
       el.classList.remove("stale");
     });
 
@@ -1066,10 +1104,10 @@ In that way, this practice is less art and more prophecy — a rehearsal for coe
     let price = force ? null : readPriceCache();
     if (!price) {
       // show a brief visual cue while fetching (only on first cold load)
-      document.querySelectorAll("[data-btc-price]").forEach(el => el.classList.add("stale"));
+      document.querySelectorAll("[data-btc-price], [data-btc-sats]").forEach(el => el.classList.add("stale"));
       price = await fetchBtcUsd();
       if (price) writePriceCache(price);
-      else       document.querySelectorAll("[data-btc-price]").forEach(el => el.classList.remove("stale"));
+      else       document.querySelectorAll("[data-btc-price], [data-btc-sats]").forEach(el => el.classList.remove("stale"));
     }
     if (price) applyPrice(price);
   }
